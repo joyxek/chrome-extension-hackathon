@@ -4,11 +4,16 @@ body {
   align-items: center;
 }
 
+#todo-list-container {
+  position: absolute;
+  top: 35%;
+}
+
 #submit {
     width: 80px;
     height: 35px;
     border-radius: 45px;
-    border: 1 px solid rgba(197, 189, 189, 0.454);
+    border: 1px solid rgba(197, 189, 189, 0.454);
     margin-left: 20px;
     cursor: pointer;
 }
@@ -18,8 +23,9 @@ body {
 }
 
 #clock-display {
-  font-size: 60px;
+  font-size: 70px;
   font-family: Orbitron;
+  text-align: center;
 
 }
 
@@ -35,16 +41,22 @@ body {
     box-shadow: 0px 1px 3px 1px rgba(201, 201, 201, 0.5);
 }
 
+#task:focus {
+  outline: none;
+}
+
+
 
 #todo-functions {
     display:inline;
     
 }
 #trash-can {
-  width: 13px;
-  height: 13px;
+  width: 15px;
+  height: 15px;
   cursor: pointer;
   float: right;
+  margin-right: 10px;
 }
 
 #trash-can:hover {
@@ -56,27 +68,30 @@ body {
   width: 0px;
   height: 15px;
   cursor: pointer;
-  position: static;
-  margin-right: 25px;
+  margin: 0 25px 0 10px;
 }
 
 
 #task-container {
   background: rgba(255, 255, 255, 0.409);
   width: 400px;
-  padding: 5px;
+  /* padding: 5px; */
   justify-content: center;
+  border-radius: 5px;
+  align-items: center;
 }
+
 #user-task-container {
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  padding: 5px 0; 
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+    
 }
+
 #todo-list {
   list-style-type: none;
-  padding-left: 10px;
+  padding-left: 0;
   /* margin-left: 20px; */
 
 }
@@ -87,7 +102,9 @@ body {
 }
 
 #temperature {
-  font-size: 60px;
+  font-size: 20px;
   font-family: Orbitron;
-  margin-left: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  /* margin-left: 20px; */
 }

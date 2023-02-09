@@ -3,8 +3,6 @@
 
 const showTime = () => {
   let time = new Date();
-  const month = time.getMonth() + 1;
-  const day = time.getDate();
   let hour = time.getHours();
   let min = time.getMinutes();
   let sec = time.getSeconds();
@@ -22,7 +20,7 @@ const showTime = () => {
   min = (min < 10) ? '0' + min : min;
   sec = (sec < 10) ? '0' + sec : sec;
 
-  const currentTime = `${hour}:${min}:${sec}  ${am_pm}`
+  const currentTime = `${hour}:${min}:${sec} ${am_pm}`
 
   document.getElementById('clock-display').innerText = currentTime;
 
@@ -40,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchWeather = await fetch('https://api.weather.gov/gridpoints/MTR/91,89/forecast');
     const data = await fetchWeather.json();
     const weatherBox = document.getElementById('temperature')
-    weatherBox.innerHTML = `${data.properties.periods[0].temperature}°F`
+    weatherBox.innerHTML = `${data.properties.periods[0].shortForecast} ${data.properties.periods[0].temperature}°F`
   }
 
 
@@ -61,21 +59,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     checkBox.addEventListener('click', (e) => {
         // e.preventDefault();
-        checkBox.style.backgroundColor = 'black';
+        if (checkBox.style.backgroundColor === 'green') {
+          checkBox.style.backgroundColor = 'white';
+        } else {
+          checkBox.style.backgroundColor = 'green';
+        }
         
     })
 
     userTaskContainer.appendChild(checkBox);
     const taskWords = document.createElement('span');
+    taskWords.id = 'task-words'
     userTaskContainer.appendChild(taskWords)
+
     // user adds tasks to to do list 
     const usersTask = document.getElementById('task');
     const task = document.createElement('li')
     
     task.id = 'task-text'
-    // if (usersTask.value.length > )
     taskWords.innerHTML = usersTask.value;
-    // task.value.id = 'users-tasks'
+
+    if (usersTask.value.length > 20) {
+      taskWords.style.wordBreak= 'break-all';
+    }
+  
+    
     usersTask.appendChild(userTaskContainer)
     
     // create a trash can (removes elements)
