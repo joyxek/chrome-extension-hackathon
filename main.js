@@ -32,6 +32,8 @@ const showTime = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
+
   showTime();
 
   async function getWeather() {
@@ -59,10 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     checkBox.addEventListener('click', (e) => {
         // e.preventDefault();
-        if (checkBox.style.backgroundColor === 'green') {
+        if (checkBox.style.backgroundColor === 'black') {
           checkBox.style.backgroundColor = 'white';
         } else {
-          checkBox.style.backgroundColor = 'green';
+          checkBox.style.backgroundColor = 'black';
         }
         
     })
@@ -103,6 +105,5 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   document.body.style.background = "#"+((1<<24)*Math.random()|0).toString(16);
-
 
 })
