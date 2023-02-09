@@ -52,13 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const userTaskContainer = document.createElement('div')
     userTaskContainer.id = 'user-task-container'
-    
+    const usersTask = document.getElementById('task');
+    if (usersTask.value === '') {
+      return false;
+    }
     // create a check box
     const checkBox = document.createElement('button')
     checkBox.id = 'check-box'
 
     checkBox.addEventListener('click', (e) => {
-        // e.preventDefault();
         if (checkBox.style.backgroundColor === 'green') {
           checkBox.style.backgroundColor = 'white';
         } else {
@@ -73,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     userTaskContainer.appendChild(taskWords)
 
     // user adds tasks to to do list 
-    const usersTask = document.getElementById('task');
     const task = document.createElement('li')
     
     task.id = 'task-text'
