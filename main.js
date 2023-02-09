@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     userTaskContainer.appendChild(checkBox);
-    const taskWords = document.createElement('span');
+    const taskWords = document.createElement('div');
     taskWords.id = 'task-words'
     userTaskContainer.appendChild(taskWords)
 
@@ -78,12 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     task.id = 'task-text'
     taskWords.innerHTML = usersTask.value;
-
-    if (usersTask.value.length > 20) {
-      taskWords.style.wordBreak= 'break-all';
-    }
   
-    
+  
     usersTask.appendChild(userTaskContainer)
     
     // create a trash can (removes elements)
