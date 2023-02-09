@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     trashCanImage.addEventListener("mouseover", (e) => {
       trashCanImage.remove();
       console.log("hovered over trash");
+      openTrash.style.padding = '0px';
       userTaskContainer.appendChild(openTrash);
     });
     
