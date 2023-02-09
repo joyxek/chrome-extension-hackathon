@@ -87,6 +87,7 @@ body {
   justify-content: center;
   border-radius: 5px;
   align-items: center;
+  margin-top: 15px;
 }
 
 #user-task-container {
