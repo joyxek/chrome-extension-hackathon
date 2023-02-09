@@ -4,17 +4,72 @@ body {
   align-items: center;
 }
 
+
+
+/* makes it so nothing moves when you add a new task */
 #todo-list-container {
   position: absolute;
-  top: 35%;
+  top: 40%;
 }
+
+
+#clock-display {
+  font-size: 75px;
+  font-family: Orbitron;
+  text-align: center;
+}
+
+/* weather API  */
+#temperature {
+  font-size: 23px;
+  font-family: Orbitron;
+  text-align: center;
+}
+
+#weather {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+}
+
+#weather img {
+  height: 28px;
+  width: 28px;
+  margin-right: 10px;
+}
+
+/* centering the form a little bit */
+#form {
+  margin-left: 20px;
+}
+
+/* form text input */
+#task {
+  width: 350px;
+  height: 35px;
+  font-size: 18px;
+  border-radius: 45px;
+  padding-left: 20px;
+  border: 1px solid rgb(197, 189, 189)
+}
+
+#task:hover {
+  box-shadow: 0px 1px 3px 1px rgba(201, 201, 201, 0.5);
+}
+
+#task:focus {
+outline: none;
+}
+
 
 #submit {
     width: 80px;
     height: 35px;
     border-radius: 45px;
     border: 1px solid rgba(197, 189, 189, 0.454);
-    margin-left: 20px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
@@ -22,56 +77,75 @@ body {
     box-shadow: 0px 1px 3px 1px rgba(179, 179, 179, 0.5);
 }
 
-#clock-display {
-  font-size: 70px;
-  font-family: Orbitron;
-  text-align: center;
 
-}
-
-#task {
-    width: 300px;
-    height: 35px;
-    border-radius: 45px;
-    padding-left: 20px;
-    border: 1px solid rgb(197, 189, 189)
-}
-
-#task:hover {
-    box-shadow: 0px 1px 3px 1px rgba(201, 201, 201, 0.5);
-}
-
-#task:focus {
-  outline: none;
-}
-
-
-
-#todo-functions {
-    display:inline;
-    
-}
 #trash-can {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
   float: right;
-  margin-left: 20px;
+  margin-left: 35px;
 }
 
 #trash-can:hover {
     box-shadow: 0px 1px 3px 1px rgba(201, 201, 201, 0.5);
 }
 
+#trash-can-open {
+  width: 19px;
+  height: 25px;
+  cursor: pointer;
+  float: right;
+  margin-left: 35px;
+  margin-top: 0px;
+}
+/* task-list styling */
+
+
+/* box for all tasks */
+#task-container {
+  background: none;
+  width: 415px;
+  justify-content: center;
+  border-radius: 5px;
+  align-items: center;
+  margin-left: 25px;
+}
+
+
 #check-box {
   border-radius: 50%;
-  width: 0px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   cursor: pointer;
   margin: 0 25px 0 10px;
   border: 1px solid black;
 }
 
+
+/* unordered list of tasks; removing bullet points */
+#todo-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 5px;
+}
+
+/* box for each task made */
+#user-task-container {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  padding: 3px 0; 
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: opacity 1s;
+}
+
+/* makes font disappear */
+.removed {
+  opacity: 0;
+}
+
+/* box for text in the task */
 #task-words {
   display: inline-block;
   width: 300px;
@@ -81,39 +155,6 @@ body {
 
 }
 
-#task-container {
-  background: rgba(255, 255, 255, 0.409);
-  width: 400px;
-  justify-content: center;
-  border-radius: 5px;
-  align-items: center;
-  margin-top: 15px;
-}
 
-#user-task-container {
-  display: flex;
-  align-items: center;
-  margin-top: 8px;
-  padding: 2px 0; 
-  font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
-    
-}
 
-#todo-list {
-  list-style-type: none;
-  padding-left: 0;
-}
 
-#top-part {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-#temperature {
-  font-size: 20px;
-  font-family: Orbitron;
-  margin-bottom: 10px;
-  text-align: center;
-}
