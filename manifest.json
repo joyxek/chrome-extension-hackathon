@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Cool Page",
+  "version": "1.0",
+  "description": "TBD",
+  "author": "Joyce Kwak and Michelle Leong",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "permissions": [
+   
+  ],
+  "icons": {
+    "16": "penguin_16x16.png",
+    "128": "penguin_16x16.png"
+  }
+}

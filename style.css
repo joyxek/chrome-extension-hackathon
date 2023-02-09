@@ -1,0 +1,93 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit {
+    width: 80px;
+    height: 35px;
+    border-radius: 45px;
+    border: 1 px solid rgba(197, 189, 189, 0.454);
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    box-shadow: 0px 1px 3px 1px rgba(179, 179, 179, 0.5);
+}
+
+#clock-display {
+  font-size: 60px;
+  font-family: Orbitron;
+
+}
+
+#task {
+    width: 300px;
+    height: 35px;
+    border-radius: 45px;
+    padding-left: 20px;
+    border: 1px solid rgb(197, 189, 189)
+}
+
+#task:hover {
+    box-shadow: 0px 1px 3px 1px rgba(201, 201, 201, 0.5);
+}
+
+
+#todo-functions {
+    display:inline;
+    
+}
+#trash-can {
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  float: right;
+}
+
+#trash-can:hover {
+    box-shadow: 0px 1px 3px 1px rgba(201, 201, 201, 0.5);
+}
+
+#check-box {
+  border-radius: 50%;
+  width: 0px;
+  height: 15px;
+  cursor: pointer;
+  position: static;
+  margin-right: 25px;
+}
+
+
+#task-container {
+  background: rgba(255, 255, 255, 0.409);
+  width: 400px;
+  padding: 5px;
+  justify-content: center;
+}
+#user-task-container {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#todo-list {
+  list-style-type: none;
+  padding-left: 10px;
+  /* margin-left: 20px; */
+
+}
+#top-part {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#temperature {
+  font-size: 60px;
+  font-family: Orbitron;
+  margin-left: 20px;
+}
