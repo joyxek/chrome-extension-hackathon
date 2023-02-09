@@ -12,6 +12,10 @@ const showTime = () => {
     hour = 12;
   }
 
+  if (hour === 12) {
+    am_pm = 'PM'
+  }
+
   if (hour > 12) {
     hour -= 12;
     am_pm = 'PM'
@@ -27,6 +31,12 @@ const showTime = () => {
   setTimeout(showTime, 1000);
 }
 
+//get a pastel color for the background
+function getColor(){ 
+  return "hsl(" + 360 * Math.random() + ',' +
+             (25 + 70 * Math.random()) + '%,' + 
+             (85 + 10 * Math.random()) + '%)'
+}
 
 
 
@@ -38,12 +48,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchWeather = await fetch('https://api.weather.gov/gridpoints/MTR/91,89/forecast');
     const data = await fetchWeather.json();
     const weatherBox = document.getElementById('temperature')
+    const weatherImage = document.getElementById('weather-icon')
+ 
     weatherBox.innerHTML = `${data.properties.periods[0].shortForecast} ${data.properties.periods[0].temperature}°F`
+
+    const rainy = data.properties.periods[0].shortForecast.includes("rain");
+    const cloudy = data.properties.periods[0].shortForecast.includes("cloud");
+
+    if (data.properties.periods[0].isDaytime) {
+      if (!rainy && !cloudy) {
+        weatherImage.src = 'day-sun.png'
+      } else if (rainy) {
+        weatherImage.src = 'rain.png'
+      } else {
+        weatherImage.src = 'day-cloudy.png'
+      }
+    } else {
+      if (!rainy && !cloudy) {
+        weatherImage.src = 'night-clear.png'
+      } else if (rainy) {
+        weatherImage.src = 'rain.png'
+      } else {
+        weatherImage.src = "night-cloudy.png"
+      }
+    }
+
   }
 
-
   getWeather();
-
 
   const submitButton = document.querySelector('#submit');
 
@@ -53,57 +85,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const userTaskContainer = document.createElement('div')
     userTaskContainer.id = 'user-task-container'
     const usersTask = document.getElementById('task');
+
+    //prevents user from submitting an empty string
     if (usersTask.value === '') {
       return false;
     }
+
     // create a check box
     const checkBox = document.createElement('button')
     checkBox.id = 'check-box'
+    userTaskContainer.appendChild(checkBox);
 
     checkBox.addEventListener('click', (e) => {
-        if (checkBox.style.backgroundColor === 'green') {
-          checkBox.style.backgroundColor = 'white';
-        } else {
-          checkBox.style.backgroundColor = 'green';
-        }
+      checkBox.style.backgroundColor = 'green';
+      userTaskContainer.classList.add('removed')
+      setTimeout(() => {
+        userTaskContainer.remove()
+      }, 750);
         
     })
 
-    userTaskContainer.appendChild(checkBox);
+    //textbox for new tasks
     const taskWords = document.createElement('div');
     taskWords.id = 'task-words'
+    taskWords.innerHTML = usersTask.value;
     userTaskContainer.appendChild(taskWords)
 
-    // user adds tasks to to do list 
-    const task = document.createElement('li')
     
-    task.id = 'task-text'
-    taskWords.innerHTML = usersTask.value;
-  
-  
-    usersTask.appendChild(userTaskContainer)
-    
-    // create a trash can (removes elements)
-    let trashCanImage = document.createElement('img');
+    // create a trash can to remove unwanted elements
+    const trashCanImage = document.createElement('img');
     trashCanImage.src = 'trash-can-icon.png';
-    const deleteButton = trashCanImage;
-    deleteButton.id = 'trash-can';
+    trashCanImage.id = 'trash-can'
     
-    deleteButton.addEventListener('click', (e) => {
+    trashCanImage.addEventListener('click', (e) => {
       e.preventDefault();
-      deleteButton.parentNode.remove();
-      
+      trashCanImage.parentNode.remove();
     })
+
     userTaskContainer.appendChild(trashCanImage);
     
+    //  user adds tasks to to do list 
+    const task = document.createElement('li')
+    task.id = 'task-text'
+    task.appendChild(userTaskContainer)
     
-    document.querySelector('ul').appendChild(userTaskContainer);
+    document.querySelector('ul').appendChild(task);
     
     // empty user input 
     usersTask.value = ''; 
+
   })
 
-  document.body.style.background = "#"+((1<<24)*Math.random()|0).toString(16);
+  document.body.style.background = getColor();
 
 
 })
